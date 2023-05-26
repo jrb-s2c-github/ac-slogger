@@ -12,6 +12,9 @@ public class TokenizingMessageFactory implements MessageFactory {
     EncryptionClient client;
 
     public TokenizingMessageFactory() {
+//      TODO  Move the url into application.yaml
+        String url = "https://localhost:8443";
+
         client = Feign.builder().
                 encoder(new GsonEncoder()).decoder(new GsonDecoder()).
                 target(EncryptionClient.class, "https://localhost:8443");
